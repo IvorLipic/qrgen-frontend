@@ -41,7 +41,7 @@ const HomePage: React.FC = () => {
           'Content-Type': 'application/json',
         },
       });
-      return response.data.access_token;  // Access token from Auth0
+      return response.data.access_token;
     } catch (error) {
       console.error('Error fetching access token:', error);
       return null;
@@ -152,9 +152,11 @@ const HomePage: React.FC = () => {
         {error && <Alert variant="destructive" className="mt-4">{error}</Alert>}
 
         {/* Wrapper container for loader and QR code */}
-        <div className="flex flex-col justify-center items-center">  
+        <div className="flex flex-col justify-center items-center">
+
           {/* Loader and QR Code container */}
           <div className="relative flex justify-center items-center h-96 w-96">
+
             {/* Loader while QR code is being fetched */}
             {isLoading && (
               <div className="absolute inset-0 flex justify-center items-center">
@@ -172,6 +174,7 @@ const HomePage: React.FC = () => {
                 <img src={qrCodeUrl} alt="QR Code" />
               </div>
             )}
+            
           </div>
         </div>
       </Card>

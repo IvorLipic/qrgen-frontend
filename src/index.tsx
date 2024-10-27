@@ -4,7 +4,6 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-// Create a root and render the App component
 const root = ReactDOM.createRoot(document.getElementById('app')!);
 root.render(
   <React.StrictMode>
@@ -12,7 +11,6 @@ root.render(
   </React.StrictMode>
 );
 
-// Optional: report web vitals for performance measuring
 reportWebVitals();
 
 

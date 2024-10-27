@@ -21,31 +21,26 @@ const TicketPage: React.FC = () => {
   useEffect(() => {
     const fetchTicketDetails = async () => {
       try {
-        // Check if the user is authenticated
         if (!isAuthenticated) {
-          // If not authenticated, redirect to Auth0 login page
           loginWithRedirect({
             authorizationParams: {
-              redirect_uri: window.location.origin + `/callback`,  // Redirect back to the callback after login
+              redirect_uri: window.location.origin + `/callback`,
             },
           });
           return;
         }
 
-        // If authenticated, fetch the access token
         const accessToken = await getAccessTokenSilently();
         const response = await axios.get<{ ticket: Ticket }>(
           `${import.meta.env.VITE_APP_API_BASE_URL}/tickets/${ticketId}`,
           {
             headers: {
-              Authorization: `Bearer ${accessToken}`,  // Pass access token in the header
+              Authorization: `Bearer ${accessToken}`,
             },
           }
         );
 
-        // Store the ticket details and username
         setTicket(response.data.ticket);
-        //setUsername(user?.name || user?.email || "Unknown User"); // Get the username from Auth0 user data
         setError(null);
       } catch (err: any) {
         setError(err.response?.data || 'Error fetching ticket details.');
