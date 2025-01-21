@@ -1,6 +1,6 @@
 https://qrgen-frontend.onrender.com/
 
-The React frontend, built with ShadCN for styling, provides an interactive interface for managing and displaying QR code-based tickets. 
+The React frontend, built with ShadCN for styling, provides an interactive interface for generating and displaying QR code-based tickets. 
 Key features include:
 
       - 1. Public homepage with form for ticket generation
